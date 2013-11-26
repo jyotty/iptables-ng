@@ -39,6 +39,8 @@ module Iptables
         # ipv6 doesn't support nat
         next if table == 'nat' and ip_version == 6
 
+        next if not node['iptables-ng']['tables'].include?(table)
+
         # Create hashes unless they already exist, and add the rule
         rules[table] ||= {}
         rules[table][chain] ||= {}

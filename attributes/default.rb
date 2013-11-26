@@ -18,6 +18,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# tables to manage
+default['iptables-ng']['tables'] = %w{nat filter mangle raw}
+
 # Packages to install
 default['iptables-ng']['packages'] = case node['platform_family']
 when 'debian'
